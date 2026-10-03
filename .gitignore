@@ -1,0 +1,12 @@
+/vendor/
+.env
+/.osp/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

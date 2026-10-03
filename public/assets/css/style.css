@@ -1,0 +1,648 @@
+:root {
+    --primary: #0079d3;
+    --bg-body: #dae0e6;
+    --bg-card: #ffffff;
+    --text-main: #1c1c1c;
+    --text-meta: #7c7c7c;
+    --border: #ccc;
+    --nav-bg: #ffffff;
+}
+
+/* Темная тема */
+body.dark-theme {
+    --primary: #d7dadc;
+    --bg-body: #030303;
+    --bg-card: #1a1a1b;
+    --text-main: #d7dadc;
+    --text-meta: #818384;
+    --border: #343536;
+    --nav-bg: #1a1a1b;
+}
+
+body {
+    font-family: sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    padding-top: 60px;
+    font-size: 14px;
+    transition: 0.1s;
+}
+
+header {
+    background: var(--nav-bg);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+header a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+/* Утилиты для лейаута */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+.single-col {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+}
+
+/* Для настроек и фулл поста */
+
+/* Карточки */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.p-2 {
+    padding: 15px;
+}
+
+.d-f {
+    display: flex
+}
+
+/* Элементы управления */
+.btn {
+    padding: 6px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #0079d3;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.btn-danger {
+    background: #ff4500;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: var(--bg-body);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    box-sizing: border-box;
+}
+
+/* Уведомления */
+.badge {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    position: relative;
+    top: -8px;
+    left: -5px;
+}
+
+.notif-item {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.notif-item.unread {
+    background: rgba(0, 121, 211, 0.1);
+    border-left: 3px solid var(--primary);
+}
+
+/* Полный экран поста */
+.full-post-view .post-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.full-post-view .comments-section {
+    display: block !important;
+    margin-top: 20px;
+}
+
+/* Сортировка */
+.sort-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.sort-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-meta);
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.sort-btn.active {
+    background: var(--border);
+    color: var(--text-main);
+}
+
+/*----------------------*/
+
+
+/* Карточка поста */
+.post-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.post-card:hover {
+    border-color: #898989;
+}
+
+/* Левая колонка с голосованием */
+.vote-column {
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+    border-right: 1px solid #edeff1;
+}
+
+.vote-btn {
+    cursor: pointer;
+    font-size: 20px;
+    color: #878a8c;
+    user-select: none;
+}
+
+.vote-btn:hover {
+    color: #cc3700;
+    background: #eef;
+    border-radius: 3px;
+}
+
+.vote-score {
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Правая часть с контентом */
+.content-column {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.post-meta {
+    font-size: 12px;
+    color: var(--text-meta);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.post-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Действия внизу поста */
+.post-actions {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #edeff1;
+    padding-top: 8px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    font-weight: 700;
+    color: #878a8c;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+}
+
+.action-btn:hover {
+    background: #eef;
+    border-radius: 4px;
+}
+
+/* Комментарии */
+.comments-section {
+    background: #fcfcfc;
+    padding: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    display: none;
+}
+
+.comment {
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+}
+
+.comment-author {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.hidden-comments {
+    display: none;
+}
+
+/* Скрытые комментарии */
+.show-more-btn {
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 5px;
+    border: none;
+    background: none;
+}
+
+/* Сайдбар */
+.sidebar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.sidebar-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: var(--text-meta);
+}
+
+
+/* Редактирование */
+.edit-input {
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.edit-textarea {
+    width: 100%;
+    padding: 5px;
+    height: 100px;
+}
+
+/* Утилиты */
+.hidden {
+    display: none !important;
+}
+
+input.field,
+textarea.field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- Messenger --- */
+.messenger-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    height: calc(100vh - 100px);
+    /* Высота на весь экран минус хедер */
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+/* Список пользователей */
+.users-list {
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    background: var(--bg-body);
+}
+
+.user-item {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-item:hover {
+    background: var(--bg-card);
+    filter: brightness(0.95);
+}
+
+.user-item.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Область чата */
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+}
+
+.chat-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border);
+    font-weight: bold;
+    background: var(--nav-bg);
+}
+
+.messages-box {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100px;
+}
+
+/* Сообщения */
+.message {
+    max-width: 70%;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    align-self: flex-end;
+    background: #0079d3;
+    color: black;
+    border-bottom-right-radius: 2px;
+}
+
+.message.received {
+    align-self: flex-start;
+    background: #dae0e6;
+    color: black;
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 2px;
+}
+
+.message-time {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* Форма отправки */
+.chat-input-area {
+    padding: 10px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    background: var(--nav-bg);
+}
+
+.chat-input-area input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* Панель поиска пользователя в мессенджере */
+.user-search-bar {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.user-search-bar input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-body);
+    color: var(--text-main);
+    font-size: 13px;
+}
+
+.user-search-bar input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.user-search-bar .btn-primary {
+    padding: 8px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* --- Admin moderation --- */
+.admin-container {
+    grid-template-columns: 1fr;
+    max-width: 980px;
+}
+
+.admin-main {
+    min-width: 0;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.admin-header h1 {
+    margin: 2px 0 0;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.admin-kicker {
+    color: var(--text-meta);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.admin-refresh {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-main);
+    padding: 8px 12px;
+    font-weight: 700;
+}
+
+.admin-list {
+    display: grid;
+    gap: 12px;
+}
+
+.admin-post-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 340px);
+    gap: 12px;
+    padding: 14px;
+}
+
+.admin-post-body {
+    min-width: 0;
+}
+
+.admin-post-card .post-title a {
+    color: inherit;
+}
+
+.admin-actions {
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 12px;
+}
+
+.admin-actions form {
+    margin: 0;
+}
+
+.admin-btn {
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 9px 12px;
+    width: 100%;
+}
+
+.approve-btn {
+    background: #17803d;
+    color: #fff;
+}
+
+.reject-btn {
+    background: #c4322b;
+    color: #fff;
+}
+
+.reject-form {
+    display: grid;
+    gap: 8px;
+}
+
+.reject-form input {
+    background: var(--bg-body);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: var(--text-main);
+    padding: 9px 10px;
+    width: 100%;
+}
+
+.messenger-warning,
+.messenger-loading,
+.messenger-error,
+.messenger-empty {
+    color: var(--text-meta);
+    padding: 20px;
+    text-align: center;
+}
+
+.messenger-error {
+    color: #c4322b;
+}
+
+@media (max-width: 760px) {
+    .admin-post-card {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-actions {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+        padding-left: 0;
+        padding-top: 12px;
+    }
+}
